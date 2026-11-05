@@ -40,7 +40,18 @@ if (command === "run") {
     "--skip-release-notes",
     "--disable-extension=vscode.vscode-api-tests",
   ];
-  const child = spawn(electron, args, { cwd: vendor, stdio: "inherit", env });
+  const child =
+    process.platform === "darwin"
+      ? spawn("open", ["-n", "-a", path.dirname(path.dirname(path.dirname(electron))), "--args", ...args], {
+          cwd: vendor,
+          stdio: "inherit",
+          env,
+        })
+      : spawn(electron, args, { cwd: vendor, stdio: "inherit", env });
+  child.on("error", (error) => {
+    console.error(error);
+    process.exit(1);
+  });
   child.on("exit", (code) => process.exit(code ?? 1));
 } else if (command === "package") {
   const target = packageTarget();
