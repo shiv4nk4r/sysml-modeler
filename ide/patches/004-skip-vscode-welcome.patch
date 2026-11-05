@@ -1,0 +1,14 @@
+--- a/src/vs/workbench/contrib/welcomeGettingStarted/browser/startupPage.ts
++++ b/src/vs/workbench/contrib/welcomeGettingStarted/browser/startupPage.ts
+@@ -234,6 +234,11 @@ export class StartupPageRunnerContribution extends Disposable implements IWorkbe
+ 	}
+ 
+ 	private tryShowOnboarding(): void {
++		// [SysML Diagram Modeler] Never show the VS Code first-run onboarding overlay.
++		if (this.productService.nameShort === 'SysML Diagram Modeler') {
++			return;
++		}
++
+ 		if (this.environmentService.skipWelcome) {
+ 			return; // skip welcome flag is set
+ 		}

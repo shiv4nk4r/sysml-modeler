@@ -3,4 +3,5 @@ dist/
 *.vsix
 .DS_Store
 ide/vendor/
+ide/.user-data/
 *.tsbuildinfo

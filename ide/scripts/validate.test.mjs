@@ -22,6 +22,14 @@ test("disables a top-level menubar registration", () => {
   assert.match(next, /\[SysML Diagram Modeler\]/);
 });
 
+test("skips the VS Code onboarding overlay for this product", async () => {
+  const { skipVsCodeWelcome } = await import("./productBuild.mjs");
+  const source = "\tprivate tryShowOnboarding(): void {\n\t\tif (this.environmentService.skipWelcome) {\n";
+  const next = skipVsCodeWelcome(source);
+  assert.match(next, /nameShort === 'SysML Diagram Modeler'/);
+  assert.equal(skipVsCodeWelcome(next), next);
+});
+
 test("the checked-in feature manifest and overlay are valid", () => {
   const features = validateFeatures(JSON.parse(readFileSync(fileURLToPath(new URL("../features.json", import.meta.url)), "utf8")));
   const overlay = validateOverlay(JSON.parse(readFileSync(fileURLToPath(new URL("../product.overlay.json", import.meta.url)), "utf8")));

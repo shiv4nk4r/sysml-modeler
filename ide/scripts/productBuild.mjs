@@ -54,6 +54,21 @@ export function registerShellImport(source) {
   return source.replace(needle, needle + insert);
 }
 
+export function skipVsCodeWelcome(source) {
+  const marker = "// [SysML Diagram Modeler] Never show the VS Code first-run onboarding overlay.";
+  if (source.includes(marker)) {
+    return source;
+  }
+  const needle = "\tprivate tryShowOnboarding(): void {\n";
+  if (!source.includes(needle)) {
+    throw new Error("Could not find tryShowOnboarding in startupPage.ts.");
+  }
+  return source.replace(
+    needle,
+    `${needle}\t\t${marker}\n\t\tif (this.productService.nameShort === 'SysML Diagram Modeler') {\n\t\t\treturn;\n\t\t}\n\n`,
+  );
+}
+
 export function validateFeatures(features) {
   for (const required of ["sysml", "kerml", "readme"]) {
     if (!features.files?.includes(required)) {
@@ -88,6 +103,12 @@ export function validateOverlay(overlay) {
   }
   if (overlay.configurationDefaults?.["workbench.colorTheme"] !== "SysML Modeler Graphite") {
     throw new Error("The product overlay must select the modeler theme.");
+  }
+  if (overlay.configurationDefaults?.["workbench.startupEditor"] !== "none") {
+    throw new Error("The product overlay must disable the VS Code welcome startup editor.");
+  }
+  if (overlay.configurationDefaults?.["workbench.welcomePage.experimentalOnboarding"] !== false) {
+    throw new Error("The product overlay must disable the VS Code onboarding overlay.");
   }
   return overlay;
 }

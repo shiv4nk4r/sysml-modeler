@@ -1,13 +1,46 @@
 import * as vscode from "vscode";
 import { homeCopy, newModelTemplate } from "../content/copy";
+import { isModelPath } from "../files/filePolicy";
 import { shellStyle } from "../theme/shellCss";
 
 export function registerHome(context: vscode.ExtensionContext): void {
   const open = vscode.commands.registerCommand("sysml.showHome", () => showHome(context));
   context.subscriptions.push(open);
-  if (vscode.workspace.getConfiguration("sysml").get<boolean>("openHomeOnStartup") && !vscode.window.activeTextEditor) {
+  if (vscode.workspace.getConfiguration("sysml").get<boolean>("openHomeOnStartup")) {
+    void bootstrapWorkspace(context);
+  }
+}
+
+async function bootstrapWorkspace(context: vscode.ExtensionContext): Promise<void> {
+  await dismissVsCodeWelcome();
+  const model = await findFirstModel();
+  if (model) {
+    const document = await vscode.workspace.openTextDocument(model);
+    await vscode.window.showTextDocument(document, { preview: false });
+    await vscode.commands.executeCommand("sysml.showDiagram");
+    return;
+  }
+  if (!vscode.window.activeTextEditor) {
     showHome(context);
   }
+}
+
+async function dismissVsCodeWelcome(): Promise<void> {
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    const welcome = vscode.window.tabGroups.all
+      .flatMap((group) => group.tabs)
+      .find((tab) => /welcome/i.test(tab.label) || String(tab.input).includes("GettingStarted"));
+    if (!welcome) {
+      return;
+    }
+    await vscode.commands.executeCommand("workbench.action.closeActiveEditor");
+    await delay(80);
+  }
+}
+
+async function findFirstModel(): Promise<vscode.Uri | undefined> {
+  const matches = await vscode.workspace.findFiles("**/*.{sysml,kerml}", "**/{node_modules,.git}/**", 20);
+  return matches.sort((left, right) => left.path.localeCompare(right.path)).find((uri) => isModelPath(uri.path));
 }
 
 function showHome(context: vscode.ExtensionContext): void {
@@ -50,4 +83,8 @@ async function createModel(): Promise<void> {
   const document = await vscode.workspace.openTextDocument(uri);
   await vscode.window.showTextDocument(document);
   await vscode.commands.executeCommand("sysml.showDiagram");
+}
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

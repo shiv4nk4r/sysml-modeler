@@ -28,6 +28,8 @@
     "sysml.openHomeOnStartup": true,
     "workbench.colorTheme": "SysML Modeler Graphite",
     "workbench.startupEditor": "none",
+    "workbench.welcomePage.experimentalOnboarding": false,
+    "workbench.welcomePage.walkthroughs.openOnInstall": false,
     "workbench.tips.enabled": false,
     "debug.showInStatusBar": "never",
     "telemetry.telemetryLevel": "off",

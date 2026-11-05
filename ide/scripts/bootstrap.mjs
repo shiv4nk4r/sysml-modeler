@@ -8,6 +8,7 @@ import {
   readJson,
   registerShellImport,
   repoRoot,
+  skipVsCodeWelcome,
   stripBuiltinExtensions,
   validateFeatures,
   validateOverlay,
@@ -64,6 +65,8 @@ for (const submenu of ["MenubarSelectionMenu", "MenubarViewMenu", "MenubarGoMenu
 fs.writeFileSync(menuFile, menus);
 const debugFile = path.join(vendor, "src/vs/workbench/contrib/debug/browser/debug.contribution.ts");
 fs.writeFileSync(debugFile, disableTopMenu(fs.readFileSync(debugFile, "utf8"), "MenubarDebugMenu"));
+const startupPage = path.join(vendor, "src/vs/workbench/contrib/welcomeGettingStarted/browser/startupPage.ts");
+fs.writeFileSync(startupPage, skipVsCodeWelcome(fs.readFileSync(startupPage, "utf8")));
 
 // Keep skipped built-ins on disk so Code-OSS postinstall/dirs.ts still resolve.
 // The shell and product defaults hide them; packaging can prune later if needed.
