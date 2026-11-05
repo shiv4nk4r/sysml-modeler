@@ -1,0 +1,40 @@
+{
+  "files": ["sysml", "kerml", "readme"],
+  "capabilities": {
+    "explorer": true,
+    "markdownPreview": true,
+    "diagram": true,
+    "search": true,
+    "debug": false,
+    "terminal": false,
+    "scm": false,
+    "extensions": false,
+    "remote": false,
+    "notebooks": false,
+    "testing": false
+  },
+  "activityBarHiddenLabels": ["Explorer", "Source Control", "Run and Debug", "Extensions", "Remote Explorer", "Testing"],
+  "skipBuiltinExtensions": [
+    "git",
+    "github",
+    "github-authentication",
+    "merge-conflict",
+    "emmet",
+    "npm",
+    "grunt",
+    "gulp",
+    "jake",
+    "typescript-language-features",
+    "javascript",
+    "json",
+    "json-language-features",
+    "html",
+    "html-language-features",
+    "css",
+    "css-language-features",
+    "php",
+    "php-language-features",
+    "ipynb",
+    "markdown-math"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "SysML Modeler Graphite",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#1c2128",
+    "editor.foreground": "#d7dde6",
+    "editorLineNumber.foreground": "#6d7886",
+    "editorCursor.foreground": "#3d8bfd",
+    "editor.selectionBackground": "#2458a855",
+    "sideBar.background": "#161b21",
+    "sideBar.foreground": "#d7dde6",
+    "sideBar.border": "#2a3340",
+    "activityBar.background": "#12161c",
+    "activityBar.foreground": "#8b97a8",
+    "activityBar.activeBorder": "#3d8bfd",
+    "activityBar.inactiveForeground": "#6d7886",
+    "titleBar.activeBackground": "#12161c",
+    "titleBar.activeForeground": "#d7dde6",
+    "statusBar.background": "#12161c",
+    "statusBar.foreground": "#8b97a8",
+    "statusBar.border": "#2a3340",
+    "panel.background": "#161b21",
+    "tab.activeBackground": "#1c2128",
+    "tab.inactiveBackground": "#161b21",
+    "tab.activeBorderTop": "#3d8bfd",
+    "focusBorder": "#3d8bfd",
+    "button.background": "#2458a8",
+    "button.foreground": "#d7dde6",
+    "input.background": "#12161c",
+    "input.border": "#2a3340",
+    "list.activeSelectionBackground": "#2458a855",
+    "list.hoverBackground": "#242b34"
+  },
+  "tokenColors": [
+    {
+      "scope": ["keyword.control.sysml", "keyword.other.sysml"],
+      "settings": { "foreground": "#8eb6ff" }
+    },
+    {
+      "scope": ["entity.name.type.sysml", "entity.name.function.sysml"],
+      "settings": { "foreground": "#d7dde6" }
+    },
+    {
+      "scope": "comment.line.sysml",
+      "settings": { "foreground": "#6d7886" }
+    },
+    {
+      "scope": "string.quoted.double.sysml",
+      "settings": { "foreground": "#c4d7b2" }
+    }
+  ]
+}

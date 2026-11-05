@@ -4,28 +4,28 @@ overview: Build a polished Code-OSS product that edits only SysML and README fil
 todos:
   - id: scaffold-extension
     content: Scaffold packages with one responsibility each, interfaces, a composition root, example models, and a webview that renders one fixed interconnection fixture to SVG.
-    status: pending
+    status: completed
   - id: code-oss-product
     content: Add the Code-OSS overlay, feature manifest, bootstrap that drops unused built-ins, and the file-type guard for SysML and README only.
-    status: pending
+    status: completed
   - id: workbench-polish
     content: Redesign the shell — three-destination rail, trimmed menus, model home, custom theme, and a quiet status bar.
-    status: pending
+    status: completed
   - id: parser-views
     content: Implement the SysML v2 subset parser, workspace index, and interconnection plus general views with click-to-source and SVG/PNG export.
-    status: pending
+    status: completed
   - id: more-views-pdf
     content: Add state-transition and action-flow scenes, then PDF export from the same SVG.
-    status: pending
+    status: completed
   - id: writeback
     content: Write diagram rename, add-part, and add-connection gestures back into the .sysml text and refresh the scene.
-    status: pending
+    status: completed
   - id: experimental-canvas
     content: Add the experimental canvas flag, layout sidecar, and palette creates that reuse the text insert helpers.
-    status: pending
+    status: completed
   - id: v1-seam
     content: Document the ModelSnapshot boundary and the later SysML v1 XMI mapping without implementing the importer.
-    status: pending
+    status: completed
 isProject: false
 ---
 

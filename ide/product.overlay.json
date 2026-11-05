@@ -1,0 +1,39 @@
+{
+  "nameShort": "SysML Diagram Modeler",
+  "nameLong": "SysML Diagram Modeler",
+  "applicationName": "sysml-diagram-modeler",
+  "dataFolderName": ".sysml-diagram-modeler",
+  "sharedDataFolderName": ".sysml-diagram-modeler-shared",
+  "win32MutexName": "sysmldiagrammodeler",
+  "win32DirName": "SysML Diagram Modeler",
+  "win32NameVersion": "SysML Diagram Modeler",
+  "win32RegValueName": "SysMLDiagramModeler",
+  "win32AppUserModelId": "SysML.DiagramModeler",
+  "win32x64AppId": "{F3A1C2D4-7B6E-4C9A-8D11-0A2B3C4D5E6F}",
+  "win32arm64AppId": "{A1B2C3D4-E5F6-4789-8ABC-DEF012345678}",
+  "win32x64UserAppId": "{11111111-2222-4333-8444-555555555555}",
+  "win32arm64UserAppId": "{66666666-7777-4888-8999-AAAAAAAAAAAA}",
+  "darwinBundleIdentifier": "com.sysml.diagram-modeler",
+  "urlProtocol": "sysml-diagram-modeler",
+  "quality": "stable",
+  "enableTelemetry": false,
+  "extensionsGallery": {
+    "serviceUrl": "https://open-vsx.org/vscode/gallery",
+    "itemUrl": "https://open-vsx.org/vscode/item",
+    "resourceUrlTemplate": "https://openvsxorg.blob.core.windows.net/resources/{publisher}/{name}/{version}/{path}"
+  },
+  "extensionRecommendations": [],
+  "configurationDefaults": {
+    "sysml.productMode": true,
+    "sysml.openHomeOnStartup": true,
+    "workbench.colorTheme": "SysML Modeler Graphite",
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+    "debug.showInStatusBar": "never",
+    "telemetry.telemetryLevel": "off",
+    "update.showReleaseNotes": false,
+    "files.exclude": {
+      "**/*.sysmlview.json": true
+    }
+  }
+}

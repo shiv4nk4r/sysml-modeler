@@ -1,0 +1,38 @@
+--- a/src/vs/workbench/browser/parts/titlebar/menubar.contribution.ts
++++ b/src/vs/workbench/browser/parts/titlebar/menubar.contribution.ts
+@@ -27,7 +27,7 @@ MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
+ 	order: 2
+ });
+ 
+-MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
++if (false) MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, { // [SysML Diagram Modeler]
+ 	submenu: MenuId.MenubarSelectionMenu,
+ 	title: {
+ 		value: 'Selection',
+@@ -37,7 +37,7 @@ MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
+ 	order: 3
+ });
+ 
+-MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
++if (false) MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, { // [SysML Diagram Modeler]
+ 	submenu: MenuId.MenubarViewMenu,
+ 	title: {
+ 		value: 'View',
+@@ -47,7 +47,7 @@ MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
+ 	order: 4
+ });
+ 
+-MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
++if (false) MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, { // [SysML Diagram Modeler]
+ 	submenu: MenuId.MenubarGoMenu,
+ 	title: {
+ 		value: 'Go',
+@@ -57,7 +57,7 @@ MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
+ 	order: 5
+ });
+ 
+-MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
++if (false) MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, { // [SysML Diagram Modeler]
+ 	submenu: MenuId.MenubarTerminalMenu,
+ 	title: {
+ 		value: 'Terminal',

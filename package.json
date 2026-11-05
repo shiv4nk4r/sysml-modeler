@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "compile": "npm run compile --prefix extensions/sysml-modeler",
+    "test": "npm test --prefix extensions/sysml-modeler && node --test ide/scripts/validate.test.mjs",
+    "check:product": "node ide/scripts/bootstrap.mjs --check",
+    "ide:bootstrap": "node ide/scripts/bootstrap.mjs",
+    "ide:install": "node ide/scripts/run-ide.mjs install",
+    "ide:watch": "node ide/scripts/run-ide.mjs watch",
+    "ide:run": "node ide/scripts/run-ide.mjs run",
+    "ide:package": "node ide/scripts/run-ide.mjs package"
+  }
+}

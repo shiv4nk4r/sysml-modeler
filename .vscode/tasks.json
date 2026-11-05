@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "compile sysml modeler",
+      "type": "npm",
+      "script": "compile",
+      "path": "extensions/sysml-modeler",
+      "group": "build",
+      "problemMatcher": ["$tsc"]
+    }
+  ]
+}

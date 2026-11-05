@@ -1,0 +1,29 @@
+{
+  "scopeName": "source.sysml",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#string" },
+    { "include": "#keyword" },
+    { "include": "#name" }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        { "name": "comment.line.sysml", "match": "//.*$" },
+        { "name": "comment.block.sysml", "begin": "/\\*", "end": "\\*/" }
+      ]
+    },
+    "string": {
+      "name": "string.quoted.double.sysml",
+      "match": "\"[^\"]*\""
+    },
+    "keyword": {
+      "name": "keyword.control.sysml",
+      "match": "\\b(package|part|def|port|connect|to|action|succession|then|state|transition|view|render|expose|filter|interface|attribute|import|private)\\b"
+    },
+    "name": {
+      "name": "entity.name.type.sysml",
+      "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "name": "sysml-modeler",
+  "displayName": "SysML Diagram Modeler",
+  "description": "Built-in SysML v2 editing, diagram rendering, and export.",
+  "version": "0.1.0",
+  "publisher": "sysml-diagram-modeler",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Programming Languages", "Visualization"],
+  "main": "./dist/extension.js",
+  "activationEvents": ["onStartupFinished", "onLanguage:sysml"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "sysml",
+        "aliases": ["SysML", "SysML v2"],
+        "extensions": [".sysml", ".kerml"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sysml",
+        "scopeName": "source.sysml",
+        "path": "./syntaxes/sysml.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "SysML Modeler Graphite",
+        "uiTheme": "vs-dark",
+        "path": "./themes/sysml-graphite.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        { "id": "sysml.modelContainer", "title": "Model", "icon": "media/model.svg" },
+        { "id": "sysml.diagramContainer", "title": "Diagram", "icon": "media/diagram.svg" },
+        { "id": "sysml.guideContainer", "title": "Guide", "icon": "media/guide.svg" }
+      ]
+    },
+    "views": {
+      "sysml.modelContainer": [{ "id": "sysml.modelView", "name": "Model" }],
+      "sysml.diagramContainer": [{ "id": "sysml.diagramView", "name": "Diagram", "type": "webview" }],
+      "sysml.guideContainer": [{ "id": "sysml.guideView", "name": "Guide", "type": "webview" }]
+    },
+    "commands": [
+      { "command": "sysml.showDiagram", "title": "Show Diagram", "category": "Diagram" },
+      { "command": "sysml.openGuide", "title": "Open Guide", "category": "Guide" },
+      { "command": "sysml.showHome", "title": "Show Home", "category": "Model" },
+      { "command": "sysml.openModelFile", "title": "Open Model File", "category": "Model" },
+      { "command": "sysml.toggleCanvas", "title": "Toggle Experimental Canvas", "category": "Diagram" }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "sysml.showDiagram",
+          "when": "editorLangId == sysml",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        { "command": "sysml.showDiagram" },
+        { "command": "sysml.openGuide" },
+        { "command": "sysml.showHome" },
+        { "command": "sysml.toggleCanvas" }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "sysml.showDiagram",
+        "key": "ctrl+alt+d",
+        "mac": "cmd+alt+d",
+        "when": "editorLangId == sysml"
+      }
+    ],
+    "configurationDefaults": {
+      "files.exclude": {
+        "**/*.sysmlview.json": true
+      }
+    },
+    "configuration": {
+      "title": "SysML Diagram Modeler",
+      "properties": {
+        "sysml.productMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Restrict the workbench to SysML and README files."
+        },
+        "sysml.openHomeOnStartup": {
+          "type": "boolean",
+          "default": false,
+          "description": "Open the model home when the window has no editor."
+        },
+        "sysml.layoutMode": {
+          "type": "string",
+          "enum": ["auto", "manual"],
+          "default": "auto",
+          "description": "Automatic ELK layout, or positions saved beside the model."
+        },
+        "sysml.experimental.canvas": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable the experimental graphical canvas. Creates still write SysML text."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "test": "tsc -p . && node --test \"dist/**/*.test.js\"",
+    "watch": "tsc -p . --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "elkjs": "^0.9.3"
+  }
+}

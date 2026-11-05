@@ -1,0 +1,11 @@
+--- a/src/vs/workbench/contrib/debug/browser/debug.contribution.ts
++++ b/src/vs/workbench/contrib/debug/browser/debug.contribution.ts
+@@ -258,7 +258,7 @@ MenuRegistry.appendMenuItem(MenuId.EditorTitle, { submenu: MenuId.EditorTitleRun
+ 
+ // Debug menu
+ 
+-MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, {
++if (false) MenuRegistry.appendMenuItem(MenuId.MenubarMainMenu, { // [SysML Diagram Modeler]
+ 	submenu: MenuId.MenubarDebugMenu,
+ 	title: {
+ 		...nls.localize2('runMenu', "Run"),

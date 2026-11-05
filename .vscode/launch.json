@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run SysML Diagram Modeler",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/extensions/sysml-modeler",
+        "${workspaceFolder}/examples/vehicle"
+      ],
+      "outFiles": ["${workspaceFolder}/extensions/sysml-modeler/dist/**/*.js"],
+      "preLaunchTask": "compile sysml modeler"
+    }
+  ]
+}
